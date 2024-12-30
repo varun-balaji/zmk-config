@@ -1,7 +1,10 @@
 /*
- * Copyright (c) 2022 The ZMK Contributors
+ * TODO: 
  *
- * SPDX-License-Identifier: MIT
+ * Get the correct layout
+ * Shorten with define macros
+ * Rename layers to NAVigation, SYMbol, SYStem
+ * Add tap dance for caps word on double tap left shift
  */
 
 #include <behaviors.dtsi>
@@ -12,9 +15,9 @@
 /*
 * #define MIRYOKU 0
 * #define GAMING 1
-* #define LEFT 2
-* #define RIGHT 3
-* #define BOTH 4
+* #define L1 2
+* #define L2 3
+* #define L3 4
 */
 
 &mt {
@@ -43,11 +46,11 @@
   /*├────────┼────────┼────────┼────────┼────────┼────────┤                                  ├────────┼────────┼────────┼────────┼────────┼────────┤*/
      &kp TAB    &kp Q    &kp W    &kp E    &kp R    &kp T                                      &kp Y     &kp U    &kp I    &kp O    &kp P  &kp BSPC
   /*├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤*/
- &kp CAPS &mt LGUI A &mt LALT S &mt LCTRL D &mt LSHFT F &kp G &trans                    &trans   &kp H     &kp J    &kp K    &kp L  &kp SEMI &kp SQT
+ &mt LCTRL ESC &mt LGUI A &mt LALT S &mt LCTRL D &mt LSHFT F &kp G &trans         &trans &kp H &mt RSHFT J &mt RCTRL K &mt RALT L &mt RGUI SEMI &kp SQT
   /*├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤*/
      &kp LSHFT  &kp Z    &kp X    &kp C    &kp V    &kp B &sys_reset                &sys_reset &kp N     &kp M &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
   /*└────────┴────────┴────┬───┴────┬───┴────┬───┴────┬───┴────┬───┘                └────┬───┴────┬───┴────┬───┴────┬───┴────┬───┴────────┴────────┘*/
-                             &mo 3  &kp LCTRL &kp SPACE &kp LALT                           &mo 3  &kp SPACE &lt 3 RET  &mo 2
+                           &mo L2 &lt L1 TAB &mt LGUI BSPC &mo L3                      &mo L3 &mt RSHFT SPACE &lt L2 RET &mo L2
                          /*└────────┴────────┴────────┴────────┘                         └────────┴────────┴────────┴────────┘*/
             >;
 
@@ -67,15 +70,15 @@
   /*├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤*/
      &kp LSHFT  &kp Z    &kp X    &kp C    &kp V    &kp B &sys_reset                &sys_reset &kp N     &kp M &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
   /*└────────┴────────┴────┬───┴────┬───┴────┬───┴────┬───┴────┬───┘                └────┬───┴────┬───┴────┬───┴────┬───┴────┬───┴────────┴────────┘*/
-                             &mo 3  &kp LCTRL &kp SPACE &kp LALT                           &mo 3  &kp SPACE &lt 3 RET  &mo 2
+                             &mo L2  &kp LCTRL &kp SPACE &kp LALT                          &mo L3  &kp SPACE &lt L2 RET &mo L2
                          /*└────────┴────────┴────────┴────────┘                         └────────┴────────┴────────┴────────┘*/
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
-        left_layer {
-            display-name = "left";
+        first_layer {
+            display-name = "L1";
 
             bindings = <
   /*┌────────┬────────┬────────┬────────┬────────┬────────┐                                  ┌────────┬────────┬────────┬────────┬────────┬────────┐*/
@@ -87,15 +90,15 @@
   /*├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤*/
   &trans &kp K_UNDO &kp K_CUT &kp K_COPY &kp K_PASTE &trans &trans                    &trans &kp HOME &kp PG_DN &kp PG_UP &kp END  &trans   &trans
   /*└────────┴────────┴────┬───┴────┬───┴────┬───┴────┬───┴────┬───┘                └────┬───┴────┬───┴────┬───┴────┬───┴────┬───┴────────┴────────┘*/
-                              &mo 3   &trans   &trans   &trans                              &mo 3   &trans   &trans   &trans
+                             &trans   &trans   &trans   &trans                             &trans   &trans   &mo L3   &trans
                          /*└────────┴────────┴────────┴────────┘                         └────────┴────────┴────────┴────────┘*/
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_NEXT C_PREV>;
         };
 
-        right_layer {
-            display-name = "right";
+        second_layer {
+            display-name = "L2";
 
             bindings = <
   /*┌────────┬────────┬────────┬────────┬────────┬────────┐                                  ┌────────┬────────┬────────┬────────┬────────┬────────┐*/
@@ -107,15 +110,15 @@
   /*├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤*/
       &trans   &trans  &kp BSLH &kp PIPE &kp LBRC &kp RBRC  &bootloader          &bootloader   &trans   &trans   &trans   &trans   &trans   &trans
   /*└────────┴────────┴────┬───┴────┬───┴────┬───┴────┬───┴────┬───┘                └────┬───┴────┬───┴────┬───┴────┬───┴────┬───┴────────┴────────┘*/
-                             &trans   &trans   &trans   &bootloader                        &trans   &trans   &trans   &bootloader
+                             &trans   &mo L3   &trans   &trans                             &trans   &trans   &trans   &trans
                          /*└────────┴────────┴────────┴────────┘                         └────────┴────────┴────────┴────────┘*/
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
         
-        both_layer {
-            display-name = "both";
+        third_layer {
+            display-name = "L3";
 
             bindings = <
   /*┌────────┬────────┬────────┬────────┬────────┬────────┐                                  ┌────────┬────────┬────────┬────────┬────────┬────────┐*/
@@ -123,9 +126,9 @@
   /*├────────┼────────┼────────┼────────┼────────┼────────┤                                  ├────────┼────────┼────────┼────────┼────────┼────────┤*/
       &trans   &trans   &trans   &trans   &trans   &trans                                      &trans   &trans   &trans   &trans   &trans   &trans
   /*├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤*/
-      &trans   &trans   &trans   &trans   &trans   &trans   &trans                    &trans   &trans   &trans   &trans   &trans   &trans   &trans
+      &trans   &trans   &trans   &trans   &trans &to GAMING &trans                    &trans   &trans   &trans   &trans   &trans   &trans   &trans
   /*├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤*/
-      &trans   &trans   &trans   &trans   &trans   &trans   &trans                    &trans   &trans   &trans   &trans   &trans   &trans   &trans
+      &trans   &trans   &trans   &trans   &trans   &trans   &trans                    &trans  &trans &to MIRYOKU &trans   &trans   &trans   &trans
   /*└────────┴────────┴────┬───┴────┬───┴────┬───┴────┬───┴────┬───┘                └────┬───┴────┬───┴────┬───┴────┬───┴────┬───┴────────┴────────┘*/
                              &trans   &trans   &trans   &trans                             &trans   &trans   &trans   &trans
                          /*└────────┴────────┴────────┴────────┘                         └────────┴────────┴────────┴────────┘*/
