@@ -17,9 +17,9 @@
 * #define BOTH 4
 */
 
-&lt {
+&mt {
     tapping-term-ms = <200>;
-}
+};
 
 / {
      behaviors {
