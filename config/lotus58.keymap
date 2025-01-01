@@ -24,7 +24,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp LSHFT>, <&caps_word>;
-        }
+        };
 
         gresc: grave_escape {
             compatible = "zmk,behavior-mod-morph";
@@ -45,7 +45,7 @@
 
     keymap {
         compatible = "zmk,keymap";
-        
+
         miryoku_layer {
             display-name = "miry";
 
