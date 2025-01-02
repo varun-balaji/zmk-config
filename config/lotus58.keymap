@@ -21,7 +21,7 @@
   tapping-term-ms = <200>;
   quick-tap-ms = <150>;
   require-prior-idle-ms = <125>;
-  flavor = "tap-preferred";
+  flavor = "balanced"; // Closer to QMK's permissive hold
 };
 
 / {
