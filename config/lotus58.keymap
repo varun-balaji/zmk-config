@@ -18,8 +18,8 @@
 #define L3 4
 
 &lt {
-  tapping-term-ms = <5000>;
-  quick-tap-ms = <1000>;
+  tapping-term-ms = <10000>;
+  quick-tap-ms = <5000>;
   require-prior-idle-ms = <200>;
   flavor = "balanced"; // Closer to QMK's permissive hold
 };
