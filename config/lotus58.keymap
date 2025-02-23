@@ -32,7 +32,7 @@
             #binding-cells = <0>;
             bindings = <&kp ESC>, <&kp GRAVE>;
             mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
-            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
         };
 
         hm: homerow_mods {
@@ -118,7 +118,7 @@
   /*├────────┼────────┼────────┼────────┼────────┼────────┤                                  ├────────┼────────┼────────┼────────┼────────┼────────┤*/
       &trans   &trans &kp UNDER &kp PLUS &kp LBKT &kp RBKT                                     &trans   &trans   &trans   &trans   &trans   &trans
   /*├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤*/
-      &trans  &trans &kp MINUS &kp EQUAL &kp LPAR &kp RPAR  &trans                    &trans   &trans   &trans   &trans   &trans   &trans   &trans
+      &trans  &trans &kp MINUS &kp EQUAL &kp LPAR &kp RPAR  &trans                    &trans  &trans &kp RSHFT &kp RCTRL &kp RALT &kp RGUI  &trans
   /*├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤*/
       &trans   &trans  &kp BSLH &kp PIPE &kp LBRC &kp RBRC  &bootloader          &bootloader   &trans   &trans   &trans   &trans   &trans   &trans
   /*└────────┴────────┴────┬───┴────┬───┴────┬───┴────┬───┴────┬───┘                └────┬───┴────┬───┴────┬───┴────┬───┴────┬───┴────────┴────────┘*/
